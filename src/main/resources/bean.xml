@@ -2,7 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="bean1" class="com.tuyano.libro.SomeBean">
-        <property name="message" value="2016/01/01"></property>
-    </bean>
+  <!-- aop bean -->
+  <bean id="sampleAopBean" class="com.tuyano.libro.aop.SampleAopBean">
+    <property name="message" value="this is AOP Bean!"></property>
+  </bean>
+  <bean id="sampleMethodAdvice" class="com.tuyano.libro.aop.SampleMethodAdvice"></bean>
+  <bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+    <property name="target" ref="sampleAopBean"></property>
+    <property name="interceptorNames">
+      <list>
+        <value>sampleMethodAdvice</value>
+      </list>
+    </property>
+  </bean>
 </beans>
