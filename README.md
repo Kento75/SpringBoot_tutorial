@@ -1,2 +1,2 @@
 # SpringBoot_tutorial
-Java8 & Spring Frameworkの学習用リポジトリ
+Java8 & Spring Framework5の学習用リポジトリ
